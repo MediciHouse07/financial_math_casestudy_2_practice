@@ -9,3 +9,12 @@
 # Tips
 #### A way to load file in Kaggle, then you can download it from the site
 write.csv(table, file = "/kaggle/working/table.csv")
+
+# Progress review
+- Downloaded bills data from case study recommended source
+- JDSU was failed to be found, doesn't know what is the reason
+- Other stock besides JDSU
+  - one seperate for 3 stocks, Non adjusted was checked in the Yahoo
+  - another combined with 3 , adjusted, checked in Yahoo
+  - both are different with Case study
+- Though the data is different, while the stock trend for GE is the same as case study showed
