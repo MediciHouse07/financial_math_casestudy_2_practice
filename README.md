@@ -9,6 +9,8 @@
 # Tips
 #### A way to load file in Kaggle, then you can download it from the site
 write.csv(table, file = "/kaggle/working/table.csv")
+#### Set bug notification in Eng
+Sys.setenv(LANGUAGE = "en")
 
 # Progress review
 - Downloaded bills data from case study recommended source
