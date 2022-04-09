@@ -1,18 +1,31 @@
-source("fm_casestudy_1_0.r")
+#source("fm_casestudy_1_0.r")
 
 library(zoo)
-load("casestudy_1_0.RData")
+library(xts)
+library("quantmod")
+library("tseries")
+library("vars")
+library("fxregime")
+library(timetk)
+library(readr)
+library(dplyr)
+library(reshape2)
 
-GE <- read.csv("data/GE_Group_NonAdjust.csv")
+#load("casestudy_1_0.RData")
 
-names(GE)[1:1] <- "Date"
-head(GE)
+GE <- read_csv("data/GE_Group_NonAdjust.csv",
+                                col_types = cols(...1 = col_date(format = "%Y-%m-%d")))%>%
+  tk_xts(date_var = ...1)
 
-GE_Plot <- GE[c('Date','Close')]
-# rownames(GE_Plot) <- GE$Date
+
+#names(GE)[1:1] <- "Date"
+#head(GE)
+
+#GE_Plot <- GE[c('Close')]
+#rownames(GE_Plot) <- GE$Date
 # plot(GE_Plot)
 
-# library(graphics)
+library(graphics)
 library(quantmod)
 
-plot(GE_Plot[,"Date"],GE_Plot[,"Close"], ylab="Price",main="GE Stock", type="l")
+plot(GE[,"Close"], ylab="Price",main="GE Stock", type="l")

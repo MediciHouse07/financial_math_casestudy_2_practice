@@ -11,6 +11,9 @@
 write.csv(table, file = "/kaggle/working/table.csv")
 #### Set bug notification in Eng
 Sys.setenv(LANGUAGE = "en")
+#### Others
+- %m/%d/%Y
+- %Y-%m-%d
 
 # Progress review
 - Downloaded bills data from case study recommended source
