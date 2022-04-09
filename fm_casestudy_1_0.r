@@ -1,6 +1,6 @@
 # fm_casestudy_1_0.r
 #
-#   * Install/load R packages 
+#   * Install/load R packages
 #   * Collect historical financial data from internet
 #   * Create time series data matrix: casestudy1.data0.0
 #         Closing prices on stocks (BAC, GE, JDSU, XOM)
@@ -15,25 +15,25 @@
 ind.install0<-FALSE
 #
 if (ind.install0){
-install.packages("quantmod") 
-install.packages("tseries") 
+install.packages("quantmod")
+install.packages("tseries")
 install.packages("vars")
 install.packages("fxregime")
 }
 # 0.2 Load packages into R session
 
-library("quantmod")  
-library("tseries")  
-library("vars")  
-library("fxregime")  
+library("quantmod")
+library("tseries")
+library("vars")
+library("fxregime")
 
 # 1. Load data into R session ----
 
 #   1.1  Stock Price Data from Yahoo
-#         Apply quantmod(sub-package TTR)  function 
-#           getYahoodata 
+#         Apply quantmod(sub-package TTR)  function
+#           getYahoodata
 #
-#             Returns historical data for any symbol at the website 
+#             Returns historical data for any symbol at the website
 #              http://finance.yahoo.com
 #
 #     1.1.1 Set start and end date for collection in YYYYMMDD (numeric) format
@@ -46,7 +46,7 @@ SP500 <- getYahooData("^GSPC", start=date.start, end=date.end)
 chartSeries(SP500[,1:5])
 
 #     1.1.3 Collect historical data for 4 stocks
-GE <- getYahooData("GE", start=date.start, end=date.end)
+GE <- getYahooData("GE", start=date.start, end=date.end, adjust=FALSE)
 BAC <- getYahooData("BAC", start=date.start, end=date.end)
 JDSU <- getYahooData("JDSU", start=date.start, end=date.end)
 XOM <- getYahooData("XOM", start=date.start, end=date.end)
@@ -58,8 +58,8 @@ chartSeries(XOM[,1:5])
 
 #     1.1.4 Details of data object GE from getYahoodata
 #
-# GE is a matrix object with 
-#     row dimension equal to the number of dates 
+# GE is a matrix object with
+#     row dimension equal to the number of dates
 #     column dimension equal to 9
 is.matrix(GE)
 dim(GE)
@@ -71,30 +71,30 @@ tail(GE)
 mode(GE)  # storage mode of GE is "numeric"
 class(GE) # object-oriented class(es) of GE are "xts" and "zoo"
           # xts is an extensible time-series object from the package xts
-          # zoo is an object storing ordered observations in a vector or matrix with an index attribute 
+          # zoo is an object storing ordered observations in a vector or matrix with an index attribute
               # Important zoo functions
               #   coredata() extracts or replaces core data
               #   index() extracts or replaces the  (sort.by) index of the object
 
 # 1.2 Federal Reserve Economic Data (FRED) from the St. Louis Federal Reserve
-#       Apply quantmod  function 
+#       Apply quantmod  function
 #           getSymbols( seriesname, src="FRED")
 #
 #             Returns historical data for any symbol at the website
 #               http://research.stlouisfed.org/fred2/
 #
 # Series name | Description
-# 
+#
 # DGS3MO      | 3-Month Treasury, constant maturity rate
 # DGS1        | 1-Year Treasury, constant maturity rate
 # DGS5        | 5-Year Treasury, constant maturity rate
 # DGS10       | 10-Year Treasury, constant maturity rate
 #
-# DAAA        | Moody's Seasoned Aaa Corporate Bond Yield 
-# DBAA        | Moody's Seasoned Baa Corporate Bond Yield 
+# DAAA        | Moody's Seasoned Aaa Corporate Bond Yield
+# DBAA        | Moody's Seasoned Baa Corporate Bond Yield
 #
 # DCOILWTICO  | Crude Oil Prices: West Text Intermediate (WTI) - Cushing, Oklahoma
-# 
+#
 #   1.2.1   Default setting collects entire series
 #           and assigns to object of same name as the series
 getSymbols("DGS3MO", src="FRED")
@@ -106,6 +106,28 @@ getSymbols("DAAA", src="FRED")
 getSymbols("DBAA", src="FRED")
 
 getSymbols("DCOILWTICO", src="FRED")
+
+files <- list.files(path = "D:\\DDog\\analysis\\pop\\Kaggle_WorldBank")
+link <- "D:\\DDog\\analysis\\pop\\Kaggle_WorldBank"
+
+DGS3MO_df <- data.frame(DGS3MO)
+
+write.csv(DGS3MO_df, file = paste0(link,'/','DGS3MO_df.csv'))
+
+DGS1_df <- data.frame(DGS1)
+DGS5_df <- data.frame(DGS5)
+DGS10_df <- data.frame(DGS10)
+DAAA_df <- data.frame(DAAA)
+DBAA_df <- data.frame(DBAA)
+DCOILWTICO_df <- data.frame(DCOILWTICO)
+
+write.csv(DGS1_df, file = paste0(link,'/','DGS1_df.csv'))
+write.csv(DGS5_df, file = paste0(link,'/','DGS5_df.csv'))
+write.csv(DGS10_df, file = paste0(link,'/','DGS10_df.csv'))
+write.csv(DAAA_df, file = paste0(link,'/','DAAA_df.csv'))
+write.csv(DBAA_df, file = paste0(link,'/','DBAA_df.csv'))
+write.csv(DCOILWTICO_df, file = paste0(link,'/','DCOILWTICO_df.csv'))
+
 
 # Each object is a 1-column matrix with time series data
 #   The column-name is the same as the object name
@@ -119,7 +141,7 @@ class(DGS3MO)
 # 2.0   Merge data series together
 
 #   2.1 Create data frame with all FRED series from 2000/01/01 on
-# 
+#
 #   Useful functions/methods   for zoo objects
 #     merge()
 #     lag (lag.zoo)
@@ -162,10 +184,10 @@ ts.plot(as.ts(fred.data0[,1:6]),col=rainbow(6),bg="black",
 par(opar)
 
 # add legend to plot
-legend(x=0,y=2, 
+legend(x=0,y=2,
        legend=dimnames(fred.data0)[[2]][1:6],
-       lty=rep(1,times=6), 
-       col=rainbow(6), 
+       lty=rep(1,times=6),
+       col=rainbow(6),
        cex=0.75)
 # Plot the Crude Oil PRice
 chartSeries(to.monthly(fred.data0[,"DCOILWTICO"]), main="FRED Data: Crude Oil (WTI)")
@@ -208,7 +230,7 @@ apply(is.na(casestudy1.data0.0)==TRUE, 2,sum)
 
 # Remaining missing values are for interest rates and the crude oil spot price
 #   There are days when the stock market is open but the bond market and/or commodities market
-#   is closed 
+#   is closed
 # For the rates and commodity data, replace NAs with previoius non-NA values
 casestudy1.data0.00<-na.locf(casestudy1.data0.0)
 
@@ -216,3 +238,4 @@ apply(is.na(casestudy1.data0.00),2,sum) # Only 1 NA left, the first DCOILWTICO v
 
 save(file="casestudy_1_0.RData", list=ls())
 
+GE <- getYahooData("GE", start=date.start, end=date.end)
