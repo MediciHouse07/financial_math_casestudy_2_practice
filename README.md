@@ -27,6 +27,7 @@ Sys.setenv(LANGUAGE = "en")
 - Exxon Mobil Corporation (XOM)
 - 安科特纳；捷迪讯 JDSU from dictionary
 - Eng R studio? [Link](https://d.cosx.org/d/421108-rstudio/7)
+- In the data source of GE, there are 6 digits in the decimal
 # Progress review
 - Downloaded bills data from case study recommended source
 - JDSU was failed to be found, doesn't know what is the reason

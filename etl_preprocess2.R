@@ -13,4 +13,6 @@ stockNtbills_na<-na.locf(stockNtbills)
 apply(is.na(stockNtbills_na)==TRUE, 2,sum)
 View(stockNtbills_na)
 
+stockNtbills_na <- data.frame(stockNtbills_na)
+
 write.csv(stockNtbills_na, file = paste0('company_stock_data/','stockNtbills_NoNA.csv'))
