@@ -19,4 +19,4 @@ ribbon3D(z = volcano, contour = TRUE, zlim= c(-100, 200),
 # image = TRUE) # Volcano should be volcano, otherwise there would have an error: Error in nrow(z) : object 'Volcano' not found
 
 
-range(100)
+range(100)#
