@@ -10,6 +10,8 @@ library(timetk)
 library(readr)
 library(dplyr)
 library(reshape2)
+library(graphics)
+library(quantmod)
 
 #load("casestudy_1_0.RData")
 
@@ -24,8 +26,5 @@ GE <- read_csv("data/GE_Group_NonAdjust.csv",
 #GE_Plot <- GE[c('Close')]
 #rownames(GE_Plot) <- GE$Date
 # plot(GE_Plot)
-
-library(graphics)
-library(quantmod)
 
 plot(GE[,"Close"], ylab="Price",main="GE Stock", type="l")
