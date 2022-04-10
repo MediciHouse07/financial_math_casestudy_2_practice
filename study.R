@@ -58,3 +58,5 @@ temp_table <- temp_table[c('Date','Symbol','Close')]
 temp_table_dcast <- dcast(temp_table, Date~Symbol) #dcast(md, ID+Time~variable)
 head(temp_table_dcast)
 head(temp_table)
+
+write.csv(temp_table_dcast, file = paste0('company_stock_data/','stockprice.csv'))
