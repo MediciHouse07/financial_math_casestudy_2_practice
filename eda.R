@@ -1,4 +1,8 @@
 library(readr)
+library(dplyr)
+library(timetk)
+library(xts)
+
 stockNtbills_NoNA <- read_csv("company_stock_data/stockNtbills_NoNA.csv") %>% tk_xts(date_var = ...1)
 
 View(stockNtbills_NoNA)
@@ -24,8 +28,8 @@ View(r.daily.SP500)
 #     accounting for the number of days between successive closing prices
 #     apply annual interest rate using 360 days/year (standard on 360-day yearsince the previous close)
 
-r.daily.riskfree<-log(1 + .01*coredata(stockNtbills_NoNA[-1,"DGS3MO"]) *
-                        diff(as.numeric(time(stockNtbills_NoNA)))/360)
+r.daily.riskfree<-log(1 + .01*coredata(stockNtbills_NoNA[-1,"DGS3MO"]) * # 0.01 maybe is for translating it to real percentage result
+                        diff(as.numeric(time(stockNtbills_NoNA)))/360) # diff(...) is number of days between 2 rows, 360?365? /360 is to normalize it to one day log diff
 dimnames(r.daily.riskfree)[[2]]<-"r.daily.riskfree"
 dim(r.daily.riskfree)
 
