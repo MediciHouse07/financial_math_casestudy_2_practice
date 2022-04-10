@@ -16,12 +16,16 @@ library(stringr)
 files <- list.files(path = "tbills_data") # all the datas
 target_name <- str_split_fixed(files, "_",n=3)[,1]
 
+DGS1 <- read_csv("tbills_data/DGS1_df.csv")
 
-DGS1_df <- data.frame(DGS1)
-DGS5_df <- data.frame(DGS5)
-DGS10_df <- data.frame(DGS10)
-DAAA_df <- data.frame(DAAA)
-DBAA_df <- data.frame(DBAA)
-DCOILWTICO_df <- data.frame(DCOILWTICO)
+DGS5 <- read_csv("tbills_data/DGS5_df.csv")
+
+DGS10 <- read_csv("tbills_data/DGS10_df.csv")
+
+DAAA_df <- read_csv("tbills_data/DAAA_df.csv")
+
+DBAA_df <- read_csv("tbills_data/DBAA_df.csv")
+
+DCOILWTICO <- read_csv("tbills_data/DCOILWTICO_df.csv")
 
 write.csv(temp_table_dcast, file = paste0('company_stock_data/','stockprice.csv'))
