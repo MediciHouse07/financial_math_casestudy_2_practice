@@ -12,6 +12,7 @@ library(dplyr)
 library(reshape2)
 library(graphics)
 library(quantmod)
+library(stringr)
 
 
 GE <- read_csv("data/GE_Group_NonAdjust.csv",
@@ -36,7 +37,7 @@ BAC <- read_csv("data/BAC_Group_NonAdjust.csv",
                 Low = col_skip(), Volume = col_skip()))
 
 files <- list.files(path = "data") # all the datas
-
+target_name <- str_split_fixed(files, "_",n=3)[,1]
 i <- 0
 while(i<=length(vec))
 {
