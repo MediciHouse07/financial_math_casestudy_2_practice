@@ -30,6 +30,7 @@ View(r.daily.SP500)
 
 r.daily.riskfree<-log(1 + .01*coredata(stockNtbills_NoNA[-1,"DGS3MO"]) * # 0.01 maybe is for translating it to real percentage result
                         diff(as.numeric(time(stockNtbills_NoNA)))/360) # diff(...) is number of days between 2 rows, 360?365? /360 is to normalize it to one day log diff
+# the answer to above question, because even though this is a 3 month bill, yield is still quoted on yearly basis, 360 trade days is a convention, so there use 360 to normalize the yield to daily basis
 dimnames(r.daily.riskfree)[[2]]<-"r.daily.riskfree"
 dim(r.daily.riskfree)
 
