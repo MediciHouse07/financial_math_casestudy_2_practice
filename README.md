@@ -2,6 +2,8 @@
 
 # Q&A
 - Q: What is the difference between "commit"" and "sign off"" in git
+- Q: What is excess return?
+  - A: excess returns (over riskfree rate)
 
 # Termnology
 - Market Yield on U.S. Treasury Securities at 3-Month Constant Maturity (DGS3MO)[Link](https://fred.stlouisfed.org/series/DGS3MO)
@@ -36,3 +38,4 @@ Sys.setenv(LANGUAGE = "en")
   - another combined with 3 , adjusted, checked in Yahoo
   - both are different with Case study
 - Though the data is different, while the stock trend for GE is the same as case study showed
+- GE and SP500 in the data source are different with case study text book, both GE and SP500 are from getyahoo, the parameter of adjust is False
