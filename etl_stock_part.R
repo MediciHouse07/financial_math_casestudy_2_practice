@@ -1,4 +1,5 @@
 #source("fm_casestudy_1_0.r")
+Sys.setenv(LANGUAGE = "en")
 
 library(zoo)
 library(xts)
