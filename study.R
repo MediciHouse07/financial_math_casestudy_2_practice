@@ -36,14 +36,19 @@ library(stringr)
 #                col_types = cols(Open = col_skip(), High = col_skip(),
 #                Low = col_skip(), Volume = col_skip()))
 
-files <- list.files(path = "data") # all the datas
+files <- list.files(path = "company_stock_data") # all the datas
 target_name <- str_split_fixed(files, "_",n=3)[,1]
 
 i <- 1
+temp_table <- NA
 while(i<=length(files))
 {
-  read_csv(paste0('data/',files[i]),
+  loop_table <- read_csv(paste0('company_stock_data/',files[i]),
            col_types = cols(Open = col_skip(), High = col_skip(),
                             Low = col_skip(), Volume = col_skip()))
+  loop_table$Symbol <- target_name[i]
+  temp_table <- rbind(temp_table,loop_table)
+  loop_table <- NA
+  print(paste0("You are processing ", target_name[i]))
   i <- i + 1
 }
