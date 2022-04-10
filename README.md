@@ -17,6 +17,8 @@ Sys.setenv(LANGUAGE = "en")
 #### Others
 - %m/%d/%Y
 - %Y-%m-%d
+#### Use markdown to draw flow chart
+[link](https://www.jianshu.com/p/02a5a1bf1096)
 
 # Findings
 - [How to report an issue](https://www.cnblogs.com/chenmingjun/p/8556908.html)

@@ -36,3 +36,9 @@ BAC <- read_csv("data/BAC_Group_NonAdjust.csv",
                 Low = col_skip(), Volume = col_skip()))
 
 files <- list.files(path = "data") # all the datas
+
+i <- 0
+while(i<=length(vec))
+{
+
+}
