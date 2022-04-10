@@ -24,6 +24,9 @@ Sys.setenv(LANGUAGE = "en")
 - [How to report an issue](https://www.cnblogs.com/chenmingjun/p/8556908.html)
 - [Where to find a good project and contribute](https://www.cnblogs.com/chenmingjun/p/8556378.html)
 - [Download GE from Yahoo](https://finance.yahoo.com/quote/GE/history?period1=946857600&period2=1649462400&interval=1d&filter=history&frequency=1d&includeAdjustedClose=true)
+- Exxon Mobil Corporation (XOM)
+- 安科特纳；捷迪讯 JDSU from dictionary
+- Eng R studio? [Link](https://d.cosx.org/d/421108-rstudio/7)
 # Progress review
 - Downloaded bills data from case study recommended source
 - JDSU was failed to be found, doesn't know what is the reason
