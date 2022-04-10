@@ -15,6 +15,10 @@ Sys.setenv(LANGUAGE = "en")
 - %m/%d/%Y
 - %Y-%m-%d
 
+# Findings
+- [How to report an issue](https://www.cnblogs.com/chenmingjun/p/8556908.html)
+- [Where to find a good project and contribute](https://www.cnblogs.com/chenmingjun/p/8556378.html)
+
 # Progress review
 - Downloaded bills data from case study recommended source
 - JDSU was failed to be found, doesn't know what is the reason
