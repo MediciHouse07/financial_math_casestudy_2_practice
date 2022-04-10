@@ -29,3 +29,10 @@ BAC_df <- read_csv("data/BAC_Group_NonAdjust.csv",
 Prices <- left_join(GE_df,BAC_df)
 
 GE_df_xts <- GE_df %>% tk_xts(date_var = ...1)
+
+
+BAC <- read_csv("data/BAC_Group_NonAdjust.csv",
+                col_types = cols(Open = col_skip(), High = col_skip(),
+                Low = col_skip(), Volume = col_skip()))
+
+files <- list.files(path = "data") # all the datas
