@@ -52,3 +52,9 @@ while(i<=length(files))
   print(paste0("You are processing ", target_name[i]))
   i <- i + 1
 }
+
+names(temp_table)[1] <- "Date"
+temp_table <- temp_table[c('Date','Symbol','Close')]
+temp_table_dcast <- dcast(temp_table, Date~Symbol) #dcast(md, ID+Time~variable)
+head(temp_table_dcast)
+head(temp_table)
