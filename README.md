@@ -1,5 +1,8 @@
 # financial_math_casestudy_2_practice
 
+# Q&A
+- Q: What is the difference between "commit"" and "sign off"" in git
+
 # Termnology
 - Market Yield on U.S. Treasury Securities at 3-Month Constant Maturity (DGS3MO)[Link](https://fred.stlouisfed.org/series/DGS3MO)
 
