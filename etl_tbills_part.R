@@ -17,15 +17,15 @@ files <- list.files(path = "tbills_data") # all the datas
 target_name <- str_split_fixed(files, "_",n=3)[,1]
 
 DGS1 <- read_csv("tbills_data/DGS1_df.csv") %>% tk_xts(date_var = "...1")
-DGS5 <- read_csv("tbills_data/DGS5_df.csv")
-DGS10 <- read_csv("tbills_data/DGS10_df.csv")
+DGS5 <- read_csv("tbills_data/DGS5_df.csv") %>% tk_xts(date_var = "...1")
+DGS10 <- read_csv("tbills_data/DGS10_df.csv") %>% tk_xts(date_var = "...1")
 DGS3MO <- read_csv("tbills_data/DGS3MO_df.csv") %>% tk_xts(date_var = "...1")
-DAAA <- read_csv("tbills_data/DAAA_df.csv")
-DBAA <- read_csv("tbills_data/DBAA_df.csv")
-DCOILWTICO <- read_csv("tbills_data/DCOILWTICO_df.csv")
+DAAA <- read_csv("tbills_data/DAAA_df.csv") %>% tk_xts(date_var = "...1")
+DBAA <- read_csv("tbills_data/DBAA_df.csv") %>% tk_xts(date_var = "...1")
+DCOILWTICO <- read_csv("tbills_data/DCOILWTICO_df.csv") %>% tk_xts(date_var = "...1")
 
 
-fred.data0<-merge(
+tbills <-merge(
   DGS3MO,
   DGS1,
   DGS5,
@@ -34,4 +34,5 @@ fred.data0<-merge(
   DBAA,
   DCOILWTICO)["2000::2013-05"]
 
-write.csv(temp_table_dcast, file = paste0('company_stock_data/','stockprice.csv'))
+tbills_df <- data.frame(tbills)
+write.csv(tbills_df , file = paste0('tbills_data/','tbills_df.csv'))
