@@ -31,6 +31,7 @@ Sys.setenv(LANGUAGE = "en")
 - Eng R studio? [Link](https://d.cosx.org/d/421108-rstudio/7)
 - In the data source of GE, there are 6 digits in the decimal
 - Statistics like "dffits" can be found in ?influence.measures
+- "is.inf" means if the observations are influential
 # Progress review
 - Downloaded bills data from case study recommended source
 - JDSU was failed to be found, doesn't know what is the reason
@@ -40,3 +41,4 @@ Sys.setenv(LANGUAGE = "en")
   - both are different with Case study
 - Though the data is different, while the stock trend for GE is the same as case study showed
 - GE and SP500 in the data source are different with case study text book, both GE and SP500 are from getyahoo, the parameter of adjust is False
+- Downloaded the book "Regression Diagnostics" Belsley, Welsch, 1980
