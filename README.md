@@ -42,3 +42,7 @@ Sys.setenv(LANGUAGE = "en")
 - Though the data is different, while the stock trend for GE is the same as case study showed
 - GE and SP500 in the data source are different with case study text book, both GE and SP500 are from getyahoo, the parameter of adjust is False
 - Downloaded the book "Regression Diagnostics" Belsley, Welsch, 1980
+- "Regression Dianostic" 25/314 Since the estimated coefficients are often 
+of primary interest to users of regression models, we look first at the 
+change in the estimated regression coefficients that would occur if the ith 
+row were deleted. - this is dfbeta
